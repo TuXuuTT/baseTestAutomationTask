@@ -9,17 +9,17 @@ Example:_
 
 `gradle clean test -Purl="https://someAnotherTestHost.com" -PbrowserClient="ff"`
 
-### **_It should bootstrap itself (install dependencies)_**
+### It should bootstrap itself (install dependencies)
 
 As gradle project, it has all required dependencies and drivers, and should be able to run default configuration without additional manipulations. All you need to run this is installed gradle app and Java.
 
-### **_Publish the code as a GitHub or a private Bitbucket repo_**
+### Publish the code as a GitHub or a private Bitbucket repo
 I guess you read this README exactly on Github :)
 
-### **_You can use Base API Client -https://developers.getbase.com/docs/rest/articles/libraries_**
+### You can use Base API Client -https://developers.getbase.com/docs/rest/articles/libraries
 //TODO
 
-### **_Adding a new test scenario should be easy._**
+### Adding a new test scenario should be easy.
 Test code is self-documented, trying to follow best practices and using PageObject pattern. Usage of 'Selenide' library makes it even more simple. It should be easy to read existing code and extend it to increase test coverage.
 To add new test, just extend(inherit from) BaseTest. To add new PageObject just extend(inherit from BasicPage).
 

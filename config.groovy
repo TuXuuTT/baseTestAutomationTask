@@ -3,16 +3,9 @@ grid {
     seleniumHub = '127.0.0.1:4444'
 }
 
-/*gmail {
-    host = 'imap.gmail.com'
-    mailStoreType = 'imaps'
-    login = 'mymail@gmail.com'
-    password = 'password'
-}*/
-
 users {
-    admin.login = ''
-    password = ''
+    admin.login = 'skylyiliya@gmail.com'
+    password = 'illiache2016'
 }
 api {
     password = 'password'
@@ -21,10 +14,6 @@ api {
 
 environments {
     dflt {
-        url = 'https://www.google.com'
+        url = 'https://core.futuresimple.com/sales/users/login'
     }
-//    bvt {
-//        url = 'http://clm-aus-009225.bmc.com:8008'
-//        tenant = 'cokebvt.com'
-//    }
 }

@@ -1,17 +1,5 @@
-# selTestAutomation
-Working QA TA Framework. has commented out own selenium wrappers classes in favor of using Selenide's
+# To run default configuration just run:
+gradle clean test
 
--Durl=""
-
--DbrowserClient=""
-
-GradleRunConfig:
-
-clean test -PbrowserClient=gc
-
-TestNGRunConfig:
-
-VM options: -ea -javaagent:"D:\0_MyService_MyIT\myServiceMiscDocs\aspectjweaver-1.8.4.jar" -Denv=bvt
-
-//
-main Selenide classes to explore available manipulations: Selenide.java, SelenideElement.java, Condition.java
+# To run custom configuration specify sys.variables custom values:
+gradle clean test -Purl="https://test1.futuresimple.com/sales/users/login" -PbrowserClient="ff"

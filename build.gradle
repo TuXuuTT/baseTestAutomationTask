@@ -5,13 +5,12 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-def restAssuredVersion='2.8.0'
+def restAssuredVersion='2.9.0'
 def minimalJsonVersion='0.9.4'
 def javaMailVersion='1.5.5'
 
-def seleniumVersion='2.49.1'
-def selenideVersion='3.1.3'
-def phantomJsVersion='1.2.1'
+def seleniumVersion='2.53.0'
+def selenideVersion='3.5.1'
 
 def grailsCoreVersion='3.0.12'
 
@@ -45,7 +44,6 @@ dependencies {
 
     compile "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
     compile "com.codeborne:selenide:${selenideVersion}"
-    compile "com.codeborne:phantomjsdriver:${phantomJsVersion}"
 
     compile "org.grails:grails-core:${grailsCoreVersion}"
 
@@ -98,15 +96,11 @@ def loadConfiguration() {
     def configFile = file('config.groovy')
     def configProperties = new ConfigSlurper(System.getProperty('env')).parse(configFile.toURI().toURL())
 
-    //defines if url specified and override it
+    //defines if url specified and override it. same for other properties that loaded from config but may need to be loaded manually from command-line during build etc.
     def envUrl = (hasProperty('url') && getProperty('url') != "" ? url : configProperties.getProperty('url'))
     configProperties.setProperty('url', envUrl)
 
-//    //defines if tenant specified and override it
-//    def envTenant = (hasProperty('tenant') && getProperty('tenant') != "" ? tenant : configProperties.getProperty('tenant'))
-//    configProperties.setProperty('tenant', envTenant)
-
-//    //magic that adds new properties w/o overriding existent ones
+    //magic that adds new properties w/o overriding existent ones
     systemPropertySet = System.getProperties() + configProperties.toProperties()
     System.setProperties(systemPropertySet)
 }

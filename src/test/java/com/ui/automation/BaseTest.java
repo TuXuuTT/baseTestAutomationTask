@@ -52,7 +52,8 @@ public class BaseTest implements IHookable {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethodInit() throws MalformedURLException {
+    public void beforeMethodInit(ITestResult testResult) throws MalformedURLException {
+        LOGGER.info("Test '{}' started its execution", testResult.getMethod().getMethodName());
     }
 
     @AfterMethod(alwaysRun = true)

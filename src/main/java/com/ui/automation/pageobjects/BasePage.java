@@ -41,25 +41,8 @@ public abstract class BasePage {
         }
     }
 
-    public Dimension getWebDriverWindowsSize() {
-        return wd.manage().window().getSize();
-    }
-
     protected Object executeJS(final String script, final Object... params) {
         return ((JavascriptExecutor) wd).executeScript(script, params);
-    }
-
-    public int getPageBodyWidth() {
-        return Integer.parseInt(executeJS("return document.body.clientWidth").toString());
-    }
-
-    public void maximizeWebdriverWindow() {
-        BrowserClient.maximizeWindow(wd);
-        try {
-            Thread.sleep(2000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     protected void waitForElementStopMoving(WebElement element) {
@@ -74,43 +57,5 @@ public abstract class BasePage {
             }
             b = element.getLocation();
         } while (!a.equals(b));
-    }
-
-    public void dragAndDropMadCap(WebElement dragElement, WebElement dropElement, /*String iFrameName,*/ int msDelayBeforeDrop, int x, int y) {
-        // Init our action builder;
-        Actions builder = new Actions(getWebDriverCurrent());
-
-        // Pickup the dragElement
-        builder.clickAndHold(dragElement).perform();
-
-        // If delay required, delay
-        if (msDelayBeforeDrop > 0)
-            Selenide.sleep(msDelayBeforeDrop);
-
-        // If across frames, switch frame
-//            if (iFrameName != null && !iFrameName.isEmpty())
-//                switchToFrame(iFrameName);
-
-        // Move to the dropElement
-        if (x != -1 || y != -1) {
-            // If we are dropping "Above" the target, drag to the element, then move to above
-            if (y < 0) {
-                // Make sure there is space above the element
-                ((JavascriptExecutor) getWebDriverCurrent()).executeScript("arguments[0].scrollIntoView(); document.body.scrollTop += " + (y - 5), dropElement);
-                builder.moveToElement(dropElement).perform();
-                Selenide.sleep(msDelayBeforeDrop);
-            }
-            builder.moveToElement(dropElement, x, y).perform();
-        } else {
-            builder.moveToElement(dropElement).perform();
-        }
-
-        // If delay required, delay
-//        if (msDelayBeforeDrop > 0)
-//            Selenide.sleep(msDelayBeforeDrop);
-        waitForElementStopMoving(dragElement);
-
-        // Release the drag element
-        builder.release().perform();
     }
 }

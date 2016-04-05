@@ -40,7 +40,7 @@ public class LocalizationConfigurator {
         return sysProps;
     }
 
-    public String getLocalizedText() {
+    public String getLocalizedTextExample() {
         return properties.getProperty("label.text");
     }
 }

@@ -17,9 +17,9 @@ public class EnvironmentConfigurator {
 
     private EnvironmentConfigurator() throws IOException {
 
-        //parse config.groovy and set one environment, which name is taken from system properties
-        //It will be used to get it's inside url and parameters
-        //in any case url and other params can be directly overridden if specified in system properties or gradle
+    /** parse config.groovy and set one environment, which name is taken from system properties
+     * It will be used to get it's inside url and parameters
+     * In any case url and other params can be directly overridden if specified in system properties or gradle */
         ConfigSlurper configSlurper = new ConfigSlurper();
         configSlurper.setEnvironment(getTestEnvironment());
         ConfigObject configObject = configSlurper.parse(new File("config.groovy").toURI().toURL());
@@ -49,6 +49,14 @@ public class EnvironmentConfigurator {
         return System.getProperty("env", "dflt");
     }
 
+    public String getAppUrl() {
+        return System.getProperty("url", properties.get("url").toString());
+    }
+
+    public String getBrowserClient() {
+        return System.getProperty("browserClient", "gc");
+    }
+
     public Boolean isGridUsed() {
         return Boolean.parseBoolean(properties.getProperty("grid.isUsed"));
     }
@@ -57,33 +65,6 @@ public class EnvironmentConfigurator {
         return properties.getProperty("grid.seleniumHub");
     }
 
-    public String getGmailHost() {
-        return properties.getProperty("gmail.host");
-    }
-
-    public String getGmailStoreType() {
-        return properties.getProperty("gmail.mailStoreType");
-    }
-
-    public String getGmailLogin() {
-        return properties.getProperty("gmail.login");
-    }
-
-    public String getGmailPassword() {
-        return properties.getProperty("gmail.password");
-    }
-
-    public String getBrowserClient() {
-        return System.getProperty("browserClient", "gc");
-    }
-
-    public String getAppUrl() {
-        return System.getProperty("url", properties.get("url").toString());
-    }
-
-//    public String getTenant() {
-//        return "@" + System.getProperty("tenant", properties.get("tenant").toString());
-//    }
 
     public String getAdminLogin() {
         return properties.getProperty("users.admin.login");

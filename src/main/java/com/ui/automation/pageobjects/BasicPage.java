@@ -10,11 +10,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 
-public abstract class BasePage {
+public abstract class BasicPage {
     protected final Logger LOGGER = LogManager.getLogger(this);
     private final WebDriver wd;
 
-    public BasePage() {
+    public BasicPage() {
         wd = WebDriverRunner.getWebDriver();
     }
 

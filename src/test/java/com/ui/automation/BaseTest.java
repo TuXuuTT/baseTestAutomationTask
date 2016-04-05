@@ -16,6 +16,7 @@ import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Attachment;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.util.Random;
 
@@ -52,8 +53,8 @@ public class BaseTest implements IHookable {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethodInit(ITestResult testResult) throws MalformedURLException {
-        LOGGER.info("Test '{}' started its execution", testResult.getMethod().getMethodName());
+    public void beforeMethodInit(Method method) throws MalformedURLException {
+        LOGGER.info("Test '{}' started its execution", method.getName());
     }
 
     @AfterMethod(alwaysRun = true)

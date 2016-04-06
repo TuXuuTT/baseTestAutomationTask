@@ -15,7 +15,7 @@ public class TestLeadsCustomFields extends BaseTest {
     DashboardPage dashboardPage;
 
     @Override
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         super.beforeClass();
         dashboardPage = open(BasicAppLoginPage.getPageURL(), BasicAppLoginPage.class)

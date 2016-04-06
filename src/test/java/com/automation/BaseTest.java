@@ -1,9 +1,9 @@
-package com.ui.automation;
+package com.automation;
 
+import com.automation.browserClient.BrowserClient;
+import com.automation.environment.EnvironmentConfigurator;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
-import com.ui.automation.browserClient.BrowserClient;
-import com.ui.automation.environment.EnvironmentConfigurator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -26,7 +26,7 @@ public class BaseTest implements IHookable {
 
     protected static void setSelenideConfigurations() {
         Configuration.screenshots = false;
-        Configuration.timeout = 10000L;
+        Configuration.timeout = 20000L;
     }
 
     public RemoteWebDriver getPureWdInstance() {

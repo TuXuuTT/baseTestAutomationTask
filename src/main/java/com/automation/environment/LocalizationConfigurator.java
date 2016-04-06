@@ -1,4 +1,4 @@
-package com.ui.automation.environment;
+package com.automation.environment;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

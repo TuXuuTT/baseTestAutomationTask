@@ -1,4 +1,4 @@
-package com.ui.automation.browserClient;
+package com.automation.browserClient;
 
 public enum BrowserClientType {
     IE("ie"),

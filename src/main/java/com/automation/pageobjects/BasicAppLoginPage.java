@@ -1,6 +1,6 @@
-package com.ui.automation.pageobjects;
+package com.automation.pageobjects;
 
-import com.ui.automation.environment.EnvironmentConfigurator;
+import com.automation.environment.EnvironmentConfigurator;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -27,9 +27,9 @@ public class BasicAppLoginPage extends BasicPage {
 //    }
 
     @Step
-    public BasicAppLoginPage loginAsAdmin(){
+    public DashboardPage loginAsAdmin(){
         enterCredentialsAndSubmit(instance.getAdminLogin(),instance.getPassword());
-        return page(this);
+        return page(DashboardPage.class);
     }
 
     protected void enterCredentialsAndSubmit(String email, String password){

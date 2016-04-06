@@ -1,6 +1,6 @@
-package com.ui.automation.browserClient;
+package com.automation.browserClient;
 
-import com.ui.automation.environment.EnvironmentConfigurator;
+import com.automation.environment.EnvironmentConfigurator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;

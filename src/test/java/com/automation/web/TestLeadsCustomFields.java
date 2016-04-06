@@ -1,7 +1,8 @@
-package com.ui.automation.web;
+package com.automation.web;
 
-import com.ui.automation.BaseTest;
-import com.ui.automation.pageobjects.BasicAppLoginPage;
+import com.automation.BaseTest;
+import com.automation.pageobjects.BasicAppLoginPage;
+import com.automation.pageobjects.DashboardPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -11,13 +12,13 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestLeadsCustomFields extends BaseTest {
 
-    BasicAppLoginPage baseAppLoginPage;
+    DashboardPage dashboardPage;
 
     @Override
     @BeforeClass
     public void beforeClass() {
         super.beforeClass();
-        baseAppLoginPage = open(BasicAppLoginPage.getPageURL(), BasicAppLoginPage.class)
+        dashboardPage = open(BasicAppLoginPage.getPageURL(), BasicAppLoginPage.class)
                 .loginAsAdmin();
     }
 
@@ -25,7 +26,8 @@ public class TestLeadsCustomFields extends BaseTest {
     @Stories({""})
     @Test(description = "")
     public void testLogin() {
-//        baseAppLoginPage
-//                .loginAsAdmin();
+        dashboardPage.openSettings()
+                .navigateToLeadSettings()
+                .collectCustomFieldsNamesAndTypes();
     }
 }

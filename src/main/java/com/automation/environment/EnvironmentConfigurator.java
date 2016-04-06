@@ -1,4 +1,4 @@
-package com.ui.automation.environment;
+package com.automation.environment;
 
 import groovy.util.ConfigObject;
 import groovy.util.ConfigSlurper;

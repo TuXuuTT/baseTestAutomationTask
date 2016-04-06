@@ -3,7 +3,7 @@
 <suite name="Base tests" verbose="10" parallel="tests" thread-count="5" group-by-instances="true">
 <test name="TestAutomationSuite starter pack">
     <packages>
-        <package name="com.ui.automation.web"/>
+        <package name="com.automation.web"/>
     </packages>
 </test>
 </suite>

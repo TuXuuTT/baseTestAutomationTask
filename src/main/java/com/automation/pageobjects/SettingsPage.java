@@ -3,6 +3,7 @@ package com.automation.pageobjects;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,8 +22,10 @@ public class SettingsPage extends DashboardPage {
     private By buttonCancel = By.cssSelector(".cancel-link.cancel");
 
     public SettingsPage navigateToLeadSettings() {
+        waitForPageLoaded();
         $(linkLeadsSettings).click();
-        $(tabCustomFields).shouldBe(Condition.visible).click();
+        waitForPageLoaded();
+        $(tabCustomFields).click();
         return this;
     }
 
@@ -36,6 +39,7 @@ public class SettingsPage extends DashboardPage {
             result.put(keyType, valueName);
             element.$(buttonCancel).click();
         }
+        LOGGER.info(result);
         return result;
     }
 }

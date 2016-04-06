@@ -76,8 +76,8 @@ public class BrowserClient {
 //        this.webDriver.manage().window().maximize();
         maximizeWindow(this.webDriver);
         this.webDriver.manage().deleteAllCookies();
-        this.webDriver.manage().timeouts().setScriptTimeout(SCRIPT_TIME_OUT_WAIT_SECONDS, SECONDS);
-        this.webDriver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIME_WAIT_SECONDS, SECONDS);
+//        this.webDriver.manage().timeouts().setScriptTimeout(SCRIPT_TIME_OUT_WAIT_SECONDS, SECONDS);
+//        this.webDriver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIME_WAIT_SECONDS, SECONDS);
         return this.webDriver;
     }
 
@@ -137,7 +137,7 @@ public class BrowserClient {
      */
     private RemoteWebDriver startFirefox() throws MalformedURLException {
         FirefoxBinary fb = new FirefoxBinary();
-        fb.setTimeout(SECONDS.toMillis(TIME_WAIT_SECONDS * 2));
+//        fb.setTimeout(SECONDS.toMillis(TIME_WAIT_SECONDS * 2));
         FirefoxProfile profile = new FirefoxProfile();
         if (!environmentConfigurator.isGridUsed()) {
             try {

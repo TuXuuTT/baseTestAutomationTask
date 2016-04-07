@@ -9,6 +9,9 @@ A Base account preconfigured with 3 custom fields (each with different name and 
 
 ### Expected result:
 On a new Lead form, the Custom Fields (name and type) correspond to the ones available on Settings page.
+
+---
+
 ### Points to focus on:
 #### Q: It should be possible to run the solution in CI
 **A:**

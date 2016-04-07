@@ -1,3 +1,4 @@
+##TASK
 ### Preconditions:
 A Base account preconfigured with 3 custom fields (each with different name and specific types: a phone, an email, a date) set up on Leads (you can set it up going to 'Settings -> Leads -> Custom Field')
 ### Test steps:
@@ -9,8 +10,8 @@ A Base account preconfigured with 3 custom fields (each with different name and 
 ### Expected result:
 On a new Lead form, the Custom Fields (name and type) correspond to the ones available on Settings page.
 ### Points to focus on:
-#### It should be possible to run the solution in CI
-
+#### Q: It should be possible to run the solution in CI
+**A:**
 _To run default configuration just run:_
 
 `gradle clean test`
@@ -20,17 +21,20 @@ Example:_
 
 `gradle clean test -Purl="https://someAnotherTestHost.com" -PbrowserClient="ff"`
 
-#### It should bootstrap itself (install dependencies)
-
+#### Q: It should bootstrap itself (install dependencies)
+**A:**
 As gradle project, it has all required dependencies and drivers, and should be able to run default configuration without additional manipulations. All you need to run this is installed gradle app and Java.
 
-#### Publish the code as a GitHub or a private Bitbucket repo
+#### Q: Publish the code as a GitHub or a private Bitbucket repo
+**A:**
 I guess you read this README exactly on Github :)
 
-#### You can use Base API Client -https://developers.getbase.com/docs/rest/articles/libraries
+#### Q: You can use Base API Client -https://developers.getbase.com/docs/rest/articles/libraries
+**A:**
 Base API v2 Java client library has been used to create new Lead entity, and then it was verified that it is displayed on the Web.
 
-#### Adding a new test scenario should be easy.
+#### Q: Adding a new test scenario should be easy.
+**A:**
 Test code is self-documented, trying to follow best practices and using PageObject pattern. Usage of 'Selenide' library makes it even more simple. It should be easy to read existing code and extend it to increase test coverage.
 To add new test, just extend(inherit from) BaseTest. To add new PageObject just extend(inherit from) BasicPage or follow existing hierarchy.
 

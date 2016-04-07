@@ -7,21 +7,27 @@ import ru.yandex.qatools.allure.annotations.Step;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class DashboardPage extends BasicAppLoginPage {
+public class DashboardPage extends BaseAppLoginPage {
+
 
     protected By toggleSettingsDropdown = By.cssSelector("a[data-original-title='Settings'] i");
     protected By linkSettings = By.cssSelector("li.settings");
-    protected By loadingBar = By.cssSelector("#feedback-progress§");
+    protected By linkLeads = By.cssSelector("#nav-leads");
+
 
     @Step
     public SettingsPage openSettings() {
-        waitForPageLoaded();
         $(toggleSettingsDropdown).click();
         $(linkSettings).shouldBe(Condition.visible).click();
+        waitForPageLoaded();
         return page(SettingsPage.class);
     }
 
-    protected void waitForPageLoaded(){
-        $(loadingBar).waitUntil(Condition.hasClass("hide"), 30000L, 100L);
+
+    @Step
+    public LeadsPage openLeads() {
+        $(linkLeads).click();
+        waitForPageLoaded();
+        return page(LeadsPage.class);
     }
 }

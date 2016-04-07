@@ -22,14 +22,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static java.lang.Thread.currentThread;
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class BrowserClient {
 
-    public static final int TIME_WAIT_SECONDS = 60;
     protected static final Logger LOGGER = LogManager.getLogger(BrowserClient.class);
-    private static final int SCRIPT_TIME_OUT_WAIT_SECONDS = 60;
-    private static final int PAGE_LOAD_TIME_WAIT_SECONDS = 60;
     protected static EnvironmentConfigurator environmentConfigurator;
     private RemoteWebDriver webDriver;
 
@@ -73,11 +69,8 @@ public class BrowserClient {
         if (environmentConfigurator.isGridUsed()) {
             this.webDriver.setFileDetector(new LocalFileDetector());
         }
-//        this.webDriver.manage().window().maximize();
         maximizeWindow(this.webDriver);
         this.webDriver.manage().deleteAllCookies();
-//        this.webDriver.manage().timeouts().setScriptTimeout(SCRIPT_TIME_OUT_WAIT_SECONDS, SECONDS);
-//        this.webDriver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIME_WAIT_SECONDS, SECONDS);
         return this.webDriver;
     }
 

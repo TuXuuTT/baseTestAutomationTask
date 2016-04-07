@@ -14,7 +14,7 @@ def selenideVersion='3.5.1'
 
 def grailsCoreVersion='3.0.12'
 
-def testngVersion='6.9.10'
+def testngVersion = '6.9.9'
 def log4jVersion='2.5'
 
 def aspectjVersion='1.8.8'

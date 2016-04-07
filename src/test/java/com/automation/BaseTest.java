@@ -18,6 +18,9 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class BaseTest implements IHookable {
@@ -92,5 +95,15 @@ public class BaseTest implements IHookable {
         for (int i = 0; i < length; i++)
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
+    }
+
+    protected Map<String, Object> createMapFromTwoLists(List<String> inputKeysList, List inputValuesLists) {
+        Map<String, Object> result = new HashMap<>();
+        if (inputKeysList.size() == inputValuesLists.size()) {
+            for (int i = 0; i < inputKeysList.size(); i++) {
+                result.put(inputKeysList.get(i), inputValuesLists.get(i));
+            }
+        } else throw new IllegalArgumentException("Cannot map lists with different sizes");
+        return result;
     }
 }

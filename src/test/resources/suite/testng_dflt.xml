@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Base tests" verbose="10" parallel="tests" thread-count="5" group-by-instances="true">
-<test name="TestAutomationSuite starter pack">
-    <packages>
-        <package name="com.automation.web"/>
-    </packages>
-</test>
+    <test name="TestAutomationSuite starter pack">
+        <packages>
+            <package name="com.automation.web"/>
+        </packages>
+    </test>
 </suite>

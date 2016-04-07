@@ -4,12 +4,11 @@ grid {
 }
 
 users {
-    admin.login = 'skylyiliya@gmail.com'
+    admin.login = 'rudagger@gmail.com'
     password = 'illiache2016'
 }
 api {
-    password = 'password'
-    port = '8008'
+    bearerToken = '598b6de7e6bae0486a64c2b29e723f0d3d22138a4f96ac0345f344e2aa5af5bc'
 }
 
 environments {

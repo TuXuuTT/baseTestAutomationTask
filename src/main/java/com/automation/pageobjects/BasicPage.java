@@ -5,7 +5,10 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 
 
 public abstract class BasicPage {
@@ -41,19 +44,5 @@ public abstract class BasicPage {
 
     protected Object executeJS(final String script, final Object... params) {
         return ((JavascriptExecutor) wd).executeScript(script, params);
-    }
-
-    protected void waitForElementStopMoving(WebElement element) {
-        Point a;
-        Point b;
-        do {
-            a = element.getLocation();
-            try {
-                Thread.sleep(500L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            b = element.getLocation();
-        } while (!a.equals(b));
     }
 }

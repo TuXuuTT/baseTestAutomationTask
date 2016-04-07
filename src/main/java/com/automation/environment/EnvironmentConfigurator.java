@@ -74,7 +74,7 @@ public class EnvironmentConfigurator {
         return properties.getProperty("users.password");
     }
 
-    public int getApiPort() {
-        return Integer.parseInt(properties.getProperty("api.port"));
+    public String getApiBearerToken() {
+        return properties.getProperty("api.bearerToken");
     }
 }
